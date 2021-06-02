@@ -1,0 +1,5 @@
+create a cluster
+=> kind create cluster
+
+set context to kubectl
+=> kubectl cluster-info --context kind-kind

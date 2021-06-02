@@ -1,0 +1,20 @@
+list nodes
+=> cubectl get nodes
+
+list clusters
+=> kind get clusters
+
+delete clusters
+=> kind delete clusters "created-clusters"
+
+create clusters with kind file configuration
+=> kind create cluster --config kind/kind.config.yaml --name=clusterskind
+
+set context to kubectl
+=> kubectl cluster-info --context kind-kind
+
+list clusters kubernetes
+=> kubectl config get-clusters
+
+set context to K8S
+=> kubectl config use-context kind-clusterskind
