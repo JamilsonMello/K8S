@@ -1,5 +1,5 @@
 apply configuration:
-    ==> kubectl apply -f pod.yaml
+    ==> kubectl apply -f filename.yaml
 
 list pods:
     ==> kubectl get pods
