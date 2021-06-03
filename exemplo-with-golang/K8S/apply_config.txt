@@ -11,3 +11,6 @@ set container port:
 
 delete pod:
     ==> kubectl delete pod goserver
+
+list replicasets:
+    ==> kubectl get replicasets
