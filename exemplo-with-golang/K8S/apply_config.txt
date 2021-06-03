@@ -32,3 +32,9 @@ rollout undo:
 
     set version: 
     ==> kubectl rollout undo deployment goserver --to-revision=<revisionNumber>
+
+create proxy to access Kubernete API:
+    ==> kubectl proxy --port=<port>
+    ex: 
+        ==> kubectl proxy --port=8080 // access the port 8080 from localhost to get access the Kubernete API.
+
