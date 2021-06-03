@@ -6,8 +6,11 @@ list pods:
     ==> kubectl get pods
     ==> kubectl get po
 
-set container port:
+set pod port:
     ==> kubectl port-forward pod/goserver 8080:8080
+
+set service port:
+    ==> kubectl port-forward svc/goserver 8080:8080
 
 delete pod:
     ==> kubectl delete pod <namepod>
