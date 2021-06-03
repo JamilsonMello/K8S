@@ -17,3 +17,15 @@ list replicasets:
 
 describe a pod:
     ==> kubectl describe pod <namepod>
+
+rollout history:
+    ==> kubectl rollout history <typeOfObject> <containerName>
+    ex:
+        ==> kubectl rollout history deployment goserver
+
+rollout undo:
+    last version:
+    ==> kubectl rollout undo deployment goserver
+
+    set version: 
+    ==> kubectl rollout undo deployment goserver --to-revision=<revisionNumber>
