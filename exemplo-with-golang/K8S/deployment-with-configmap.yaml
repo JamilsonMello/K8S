@@ -17,6 +17,9 @@ spec:
       containers:
         - name: goserver
           image: jamilsonmelo/goserver
+          #envFrom: // load configmap file with all environment variables
+            #- configMapKeyRef:
+              #name: goserver-env
           env: 
             - name: USER
               valueFrom:
