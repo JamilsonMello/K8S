@@ -5,11 +5,13 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 )
 
 func main() {
 	http.HandleFunc("/hello", helloHandler)
 	http.HandleFunc("/configmap", configMapHandler)
+	http.HandleFunc("/secret", secretHandler)
 
 	http.ListenAndServe(":8080", nil)
 
@@ -28,4 +30,11 @@ func configMapHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	fmt.Fprintf(w, "env file: %s.", string(data))
+}
+
+func secretHandler(w http.ResponseWriter, r *http.Request) {
+	user := os.Getenv("USER")
+	password := os.Getenv("PASSWORD")
+
+	fmt.Fprintf(w, "User: %s, Password: %s", user, password)
 }
