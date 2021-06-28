@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: goserver
+  labels:
+    app: goserver
+spec:
+  selector:
+    matchLabels:
+      app: goserver
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: goserver
+    spec: 
+      containers:
+        - name: goserver
+          image: jamilsonmelo/goserver
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          volumeMounts:
+            - mountPath: "./"
+              name: "configmap"
+              readOnly: true
+
+      volumes:
+        - name: "configmap"
+          configMap:
+            name: envfile
+            items:
+            - key: "USER"
+              path: ".envfile"
