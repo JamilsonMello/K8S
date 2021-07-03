@@ -12,6 +12,7 @@ func main() {
 	http.HandleFunc("/hello", helloHandler)
 	http.HandleFunc("/configmap", configMapHandler)
 	http.HandleFunc("/secret", secretHandler)
+	http.HandleFunc("/healthz", healthzHandler)
 
 	http.ListenAndServe(":8080", nil)
 
@@ -37,4 +38,9 @@ func secretHandler(w http.ResponseWriter, r *http.Request) {
 	password := os.Getenv("PASSWORD")
 
 	fmt.Fprintf(w, "User: %s, Password: %s", user, password)
+}
+
+func healthzHandler(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(200)
+	w.Write([]byte("Ok"))
 }
