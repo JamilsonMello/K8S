@@ -1,0 +1,18 @@
+go to the repository kubernetes sigs: https://github.com/kubernetes-sigs/metrics-server
+
+get the metrics with wget:
+    
+    => wget https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+
+    and now, add to Deployment args the tag:
+
+    => - --kubelet-insecure-tls
+
+    => kubectl apply -f metrics-server.yaml
+
+show services active:
+    => kubectl get apiservices
+
+    you can see the service metrics.k8s.io actived
+
+## do this if you want working with "kind" in development environment
